@@ -1,0 +1,45 @@
+-- -------------------------------------------------------------
+-- TablePlus 4.8.2(436)
+--
+-- https://tableplus.com/
+--
+-- Database: db_file_transfer
+-- Generation Time: 2022-08-22 18:59:31.3060
+-- -------------------------------------------------------------
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+DROP TABLE IF EXISTS `tb_files`;
+CREATE TABLE `tb_files` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增ID',
+  `file_name` varchar(255) NOT NULL DEFAULT '' COMMENT '文件名',
+  `file_id` varchar(255) NOT NULL DEFAULT '' COMMENT '文件ID',
+  `upload_id` varchar(60) NOT NULL DEFAULT '' COMMENT '上传ID',
+  `uid` int(11) NOT NULL DEFAULT '0' COMMENT '上传UID',
+  `ctime` int(10) NOT NULL DEFAULT '0' COMMENT '上传时间',
+  `password` varchar(10) NOT NULL DEFAULT '' COMMENT '请求密钥',
+  `views` int(10) NOT NULL DEFAULT '0' COMMENT '查看数',
+  `downloads` int(10) NOT NULL DEFAULT '0' COMMENT '下载数',
+  `expire` int(10) NOT NULL DEFAULT '0' COMMENT '过期时间',
+  `file_size` varchar(60) DEFAULT '0' COMMENT '文件大小',
+  `file_path` varchar(255) NOT NULL DEFAULT '' COMMENT '文件路径',
+  PRIMARY KEY (`id`),
+  index `password` (`password`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
