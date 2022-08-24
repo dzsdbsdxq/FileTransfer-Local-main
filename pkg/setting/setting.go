@@ -7,13 +7,18 @@ import (
 
 var (
 	Cfg                 *ini.File
+	UploadTitle         string
 	UploadDir           string
+	UploadDesc          string
 	RunModel            string
 	AddrIP              string
 	HttpPort            int
 	LimitCountPerSecond int
-	JwtSecret           string
 	WebName             string
+	WebUrl              string
+	WebSubTitle         string
+	WebMit              string
+	WebNotice           string
 	DownDomain          string
 )
 
@@ -42,8 +47,13 @@ func loadConfig() {
 		log.Fatalf("Fail to get section 'app':%v", err)
 	}
 	LimitCountPerSecond = app.Key("LIMIT_COUNT_PER_SECOND").MustInt(7)
-	JwtSecret = app.Key("JWT_SECRET").MustString("!@)*#)!@U#@*!@!)")
-	UploadDir = app.Key("UPLOAD_DIR").MustString("./upload/")
+	UploadDir = app.Key("UPLOAD_DIR").MustString("./runtime/upload/")
+	UploadTitle = app.Key("UPLOAD_TITLE").MustString("")
+	UploadDesc = app.Key("UPLOAD_DESC").MustString("")
 	WebName = app.Key("WEB_NAME").MustString("点点笔记")
-	DownDomain = app.Key("DOWN_DOMAIN").MustString("/d/")
+	WebUrl = app.Key("WEB_URL").MustString("https://mapi.net.cn")
+	WebMit = app.Key("WEB_MIT").MustString("粤ICP备2020114467号")
+	WebSubTitle = app.Key("WEB_SUB_TITLE").MustString("")
+	WebNotice = app.Key("WEB_NOTICE").MustString("欢迎使用文件快传")
+	DownDomain = app.Key("DOWN_DOMAIN").MustString("/api/d/")
 }
