@@ -1,7 +1,6 @@
 package main
 
 import (
-	"FileTransfer/middlewares"
 	_ "FileTransfer/middlewares"
 	"FileTransfer/pkg/logging"
 	"FileTransfer/pkg/setting"
@@ -10,10 +9,10 @@ import (
 )
 
 func init() {
-	err := middlewares.SetupIPRateLimiter()
-	if err != nil {
-		logging.Logger.Fatalf("init.SetupIPRateLimiter err: %v", err)
-	}
+	//err := middlewares.SetupIPRateLimiter()
+	//if err != nil {
+	//	logging.Logger.Fatalf("init.SetupIPRateLimiter err: %v", err)
+	//}
 }
 func main() {
 	r := routers.InitRouter()

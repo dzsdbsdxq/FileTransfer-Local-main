@@ -1,12 +1,12 @@
 package routers
 
 import (
-	"FileTransfer/bootstrap"
 	"FileTransfer/controller"
 	"FileTransfer/middlewares"
 	"FileTransfer/pkg/setting"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
 func InitRouter() *gin.Engine {
@@ -16,11 +16,12 @@ func InitRouter() *gin.Engine {
 
 	r.Use(gin.Recovery())
 
-	r.Use(bootstrap.LimitMiddleware())
+	//r.Use(bootstrap.LimitMiddleware())
+
 	gin.SetMode(setting.RunModel)
 
 	Cors(r)
-	r.Static("/web", "web")
+	r.StaticFS("/web", http.Dir("./web"))
 	r.LoadHTMLGlob("./web/*.html")
 	r.GET("/", controller.IndexPage)
 	r.POST("/api/check", controller.CheckAuth)
