@@ -6,10 +6,7 @@
 
 ### 前期准备
 
-除过 mysql 以外，其他服务都开箱即可使用，无需进行初始化之类的操作
-
-mysql 需要创建数据库`db_file_transfer`，使用 data/tb_files.sql 来初始化表结构和表数据
-
+其他服务都开箱即可使用，无需进行初始化之类的操作
 
 ### 项目结构
 
@@ -49,25 +46,27 @@ mysql 需要创建数据库`db_file_transfer`，使用 data/tb_files.sql 来初�
     JWT_SECRET = 23347$040412
     #上传路径
     UPLOAD_DIR = /FileTransfer/runtime/upload/
+    # 上传标题
+    UPLOAD_TITLE = 只需简单1步，极速文件互传，从未这样爽过！
+    # 上传描述
+    UPLOAD_DESC = 建议文件大小不超过1024M
     # 下载url
     DOWN_DOMAIN = /api/d/
     # 网站标题
     WEB_NAME = 点点笔记
+    # 网站URL
+    WEB_URL = https://mapi.net.cn
+    # 网站备案号
+    WEB_MIT = 粤ICP备2020114467号
+    # 子标题
+    WEB_SUB_TITLE = 
+    # 提示
+    WEB_NOTICE = 
     PROXY = false
 
     [server]
     ADDR_IP = 0.0.0.0
     HTTP_PORT = 8999
-    READ_TIMEOUT = 60
-    WRITE_TIMEOUT = 60
-
-    [database]
-    TYPE = mysql
-    USER = root
-    PASSWORD = root
-    HOST = localhost:3306
-    NAME = db_file_transfer
-    TABLE_PREFIX = tb_
     ```
     
  + 运行
